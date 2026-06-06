@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clean, modern, and professional portfolio for a clothing business owner.">
+    <title>Studio Thread | Crafting Unique Clothing Designs</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">Studio<span>Thread</span></a>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#portfolio">Shop</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="javascript:void(0)" onclick="openWishlist()" class="nav-icon" title="Wishlist"
+                style="position: relative; display: flex; align-items: center;"><i class="ph ph-heart"
+                    style="font-size: 1.25rem;"></i><span id="wishlist-count"
+                    style="position: absolute; top: -8px; right: -12px; background: #e63946; color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; opacity: 0;">0</span></a>
+            <a href="javascript:void(0)" onclick="openCart()" class="nav-icon" title="Cart"
+                style="position: relative; display: flex; align-items: center;"><i class="ph ph-shopping-cart"
+                    style="font-size: 1.25rem;"></i><span id="cart-count"
+                    style="position: absolute; top: -8px; right: -12px; background: var(--color-dark); color: white; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; opacity: 0;">0</span></a>
+            <a href="https://www.instagram.com/studio_thread_0417" target="_blank" class="nav-social"><i
+                    class="ph ph-instagram-logo"></i></a>
+            <a href="#contact" class="btn-outline">Contact</a>
+        </nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="ph ph-list"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="hero fade-in">
+            <div class="hero-content">
+                <h1>Crafting Unique Clothing Designs That Stand Out</h1>
+                <p>Custom tailoring, modern streetwear, and timeless pieces tailored to your identity.</p>
+                <div class="hero-cta">
+                    <a href="#portfolio" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Hire Me</a>
+                    <a href="https://wa.me/?text=Check%20out%20my%20clothing%20collection:%20https://wixsite.com/studiothreads"
+                        target="_blank" class="btn-outline"
+                        style="background: transparent; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="ph ph-whatsapp-logo"></i> Share on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="images/hero_bg.png" alt="Hero Fashion Banner" class="hero-bg" id="hero-img">
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image fade-in scroll-anim">
+                        <img src="images/about_img.png" alt="Designer Portrait" id="about-img">
+                        <div class="brand-badge">EST. 2026</div>
+                    </div>
+                    <div class="about-text fade-in scroll-anim">
+                        <span class="section-subtitle">Behind The Brand</span>
+                        <h2>A Passion for Fabric & Form</h2>
+                        <p>I started Studio Thread with a simple mission: to bridge the gap between high-end fashion and
+                            everyday wearability. What began as a small passion project has evolved into a full-scale
+                            clothing design studio dedicated to quality and personal expression.</p>
+
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <i class="ph ph-scissors"></i>
+                                <span>Custom Tailoring</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="ph ph-t-shirt"></i>
+                                <span>Streetwear Design</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="ph ph-pencil-line"></i>
+                                <span>Brand Development</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="ph ph-package"></i>
+                                <span>Bulk Production</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Portfolio Section -->
+        <section id="portfolio" class="portfolio section-padding">
+            <div class="container">
+                <div class="section-header text-center fade-in scroll-anim">
+                    <span class="section-subtitle">Our Products</span>
+                    <h2>Shop The Collection</h2>
+                </div>
+
+                <div class="search-container fade-in scroll-anim text-center" style="margin-bottom: 3rem;">
+                    <div
+                        style="display: inline-flex; width: 100%; max-width: 500px; border: 1px solid rgba(0,0,0,0.1); border-radius: 40px; overflow: hidden; background: var(--color-light); box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                        <input type="text" id="searchBox" placeholder="Search clothes, prices..."
+                            onkeyup="searchProducts()"
+                            style="flex: 1; padding: 1rem 1.5rem; border: none; outline: none; font-family: var(--font-sans); font-size: 1rem; background: transparent;">
+                        <button onclick="searchProducts()"
+                            style="padding: 0 1.5rem; background: var(--color-dark); color: var(--color-light); border: none; cursor: pointer; font-size: 1.25rem; transition: var(--transition-fast);"><i
+                                class="ph ph-magnifying-glass"></i></button>
+                    </div>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item fade-in scroll-anim">
+                        <img src="images/police_dress.jpg" alt="Baby Police Costume" class="portfolio-img"
+                            id="port-img-0">
+                        <div class="portfolio-overlay">
+                            <h3>Baby Police Costume</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i>
+                            </div>
+                            <p>600 rs | Custom Sizes Available</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Baby Police Costume', 600, 'images/police_dress.jpg')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Baby Police Costume', 600, 'images/police_dress.jpg')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Baby Police Costume')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-1">
+                        <img src="images/green_suit.png" alt="Green Embroidered Suit" class="portfolio-img"
+                            id="port-img-1">
+                        <div class="portfolio-overlay">
+                            <h3>Green Embroidered Suit</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i>
+                            </div>
+                            <p>500rs | All sizes available</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Green Embroidered Suit', 500, 'images/green_suit.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Green Embroidered Suit', 500, 'images/green_suit.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Green Embroidered Suit')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-1">
+                        <img src="images/portfolio_2.png" alt="Beige Linen Suit" class="portfolio-img" id="port-img-2">
+                        <div class="portfolio-overlay">
+                            <h3>Beige Linen Suit</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star-half"></i>
+                            </div>
+                            <p>$180.00 | Tailored Fit</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Beige Linen Suit', 180, 'images/portfolio_2.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Beige Linen Suit', 180, 'images/portfolio_2.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Beige Linen Suit')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-2">
+                        <img src="images/portfolio_3.png" alt="Vintage Denim Jacket" class="portfolio-img"
+                            id="port-img-3">
+                        <div class="portfolio-overlay">
+                            <h3>Vintage Denim Jacket</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i>
+                            </div>
+                            <p>$95.00 | One of a Kind</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Vintage Denim Jacket', 95, 'images/portfolio_3.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Vintage Denim Jacket', 95, 'images/portfolio_3.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Vintage Denim Jacket')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim">
+                        <img src="images/portfolio_1.png" alt="Minimal Sweatpants" class="portfolio-img"
+                            id="port-img-4">
+                        <div class="portfolio-overlay">
+                            <h3>Minimal Sweatpants</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph ph-star"></i>
+                            </div>
+                            <p>$50.00 | Sizes: S, M, L</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Minimal Sweatpants', 50, 'images/portfolio_1.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Minimal Sweatpants', 50, 'images/portfolio_1.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Minimal Sweatpants')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-1">
+                        <img src="images/portfolio_2.png" alt="Classic White Tee" class="portfolio-img" id="port-img-5">
+                        <div class="portfolio-overlay">
+                            <h3>Classic White Tee</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i>
+                            </div>
+                            <p>$35.00 | Premium Quality</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Classic White Tee', 35, 'images/portfolio_2.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Classic White Tee', 35, 'images/portfolio_2.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Classic White Tee')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-2">
+                        <img src="images/portfolio_3.png" alt="Performance Jacket" class="portfolio-img"
+                            id="port-img-6">
+                        <div class="portfolio-overlay">
+                            <h3>Performance Jacket</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star-half"></i>
+                            </div>
+                            <p>$110.00 | Weather Resistant</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Performance Jacket', 110, 'images/portfolio_3.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Performance Jacket', 110, 'images/portfolio_3.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <button class="btn-wa buy-btn" onclick="buyNow('Performance Jacket')">Buy <i
+                                        class="ph ph-whatsapp-logo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in scroll-anim delay-1">
+                        <img src="images/portfolio_5.png" alt="Green Embroidered Kurta Set" class="portfolio-img"
+                            id="port-img-8">
+                        <div class="portfolio-overlay">
+                            <h3>Green Embroidered Kurta Set</h3>
+                            <div class="product-rating">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                    class="ph-fill ph-star"></i>
+                            </div>
+                            <p>500 rs | All sizes available</p>
+                            <div class="product-actions">
+                                <button class="action-btn wishlist-btn"
+                                    onclick="toggleWishlist('Green Embroidered Kurta Set', 500, 'images/portfolio_5.png')"
+                                    title="Wishlist"><i class="ph ph-heart"></i></button>
+                                <button class="action-btn cart-btn"
+                                    onclick="addToCart('Green Embroidered Kurta Set', 500, 'images/portfolio_5.png')"
+                                    title="Add to Cart"><i class="ph ph-shopping-cart"></i></button>
+                                <a href="https://rzp.io/l/xyz123" target="_blank" class="btn-wa buy-btn"
+                                    style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 1.5rem; color: #fff;">Buy
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Services Section -->
+        <section id="services" class="services section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center fade-in scroll-anim">
+                    <span class="section-subtitle">What We Offer</span>
+                    <h2>Our Services</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card fade-in scroll-anim">
+                        <i class="ph ph-needle"></i>
+                        <h3>Custom Design</h3>
+                        <p>One-of-a-kind clothing pieces designed from scratch to match your exact measurements and
+                            aesthetic vision.</p>
+                        <span class="price-hint">Starting from $150</span>
+                    </div>
+                    <div class="service-card fade-in scroll-anim delay-1">
+                        <i class="ph ph-factory"></i>
+                        <h3>Bulk Orders & Merch</h3>
+                        <p>High-quality production for your brand, team, or event. We handle sourcing, sampling, and
+                            final production.</p>
+                        <span class="price-hint">Contact for Quote</span>
+                    </div>
+                    <div class="service-card fade-in scroll-anim delay-2">
+                        <i class="ph ph-star"></i>
+                        <h3>Brand Styling</h3>
+                        <p>Creative direction and styling for looking your best at photoshoots, events, or in your
+                            everyday life.</p>
+                        <span class="price-hint">Starting from $200</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Testimonials Section -->
+        <section id="testimonials" class="testimonials section-padding">
+            <div class="container">
+                <div class="section-header text-center fade-in scroll-anim">
+                    <span class="section-subtitle">Client Love</span>
+                    <h2>Word on the Street</h2>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card fade-in scroll-anim">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"Studio Thread completely elevated my brand's merchandise. The quality is unmatched and the
+                            attention to detail is exactly what we needed."</p>
+                        <div class="client-info">
+                            <h4>Sarah Jenkins</h4>
+                            <span>Founder, Vibe Co.</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in scroll-anim delay-1">
+                        <div class="stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i>
+                        </div>
+                        <p>"Got a custom two-piece designed for my wedding and it fit like a glove. Received more
+                            compliments on the fit than I can count."</p>
+                        <div class="client-info">
+                            <h4>Marcus T.</h4>
+                            <span>Private Client</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="contact section-padding bg-dark">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info fade-in scroll-anim">
+                        <h2>Let's Create Something Together</h2>
+                        <p>Whether you're looking for a bespoke piece or a bulk manufacturing run, let's start a
+                            conversation.</p>
+
+                        <div class="contact-methods">
+                            <a href="mailto:studiothread0417@gmail.com" class="contact-link">
+                                <i class="ph ph-envelope-simple"></i>
+                                studiothread0417@gmail.com
+                            </a>
+                            <a href="https://wa.me/919866331563" target="_blank" class="contact-link">
+                                <i class="ph ph-whatsapp-logo"></i>
+                                Message on WhatsApp
+                            </a>
+                            <a href="https://www.instagram.com/studio_thread_0417" class="contact-link" target="_blank">
+                                <i class="ph ph-instagram-logo"></i>
+                                @studio_thread_0417
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container fade-in scroll-anim delay-1">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. Footer -->
+    <footer class="footer">
+        <div class="container flex-footer">
+            <div class="footer-brand">
+                <h3>Studio<span>Thread</span></h3>
+                <p>Crafting unique clothing designs for those who want to stand out.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#portfolio">Shop</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.instagram.com/kavya_pandu_" target="_blank"><i class="ph ph-instagram-logo"></i>
+                    Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Studio Thread. All rights reserved.</p>
+            <a href="https://wa.me/?text=Check%20out%20my%20clothing%20collection:%20https://wixsite.com/studiothreads"
+                target="_blank" class="btn-outline"
+                style="margin-top: 1rem; color: var(--color-text-light); border-color: var(--color-text-light); background: transparent; display: inline-flex; align-items: center; gap: 0.5rem;">
+                <i class="ph ph-whatsapp-logo"></i> Share on WhatsApp
+            </a>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919866331563" target="_blank" class="floating-wa" title="Chat with us on WhatsApp">
+        <i class="ph ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="side-modal">
+        <div class="side-modal-header">
+            <h3>Your Cart</h3>
+            <button class="close-modal" onclick="closeCart()"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="side-modal-content" id="cart-items">
+            <!-- Items injected by JS -->
+            <p class="empty-msg" style="color: var(--color-text-light); padding: 2rem 0; text-align: center;">Your cart
+                is empty.</p>
+        </div>
+        <div class="side-modal-footer">
+            <div class="total-row"
+                style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 600; font-size: 1.2rem;">
+                <span>Total:</span> <span id="cart-total">0</span></div>
+            <button class="btn-primary w-100" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div id="wishlist-modal" class="side-modal">
+        <div class="side-modal-header">
+            <h3>Your Wishlist</h3>
+            <button class="close-modal" onclick="closeWishlist()"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="side-modal-content" id="wishlist-items">
+            <!-- Items injected by JS -->
+            <p class="empty-msg" style="color: var(--color-text-light); padding: 2rem 0; text-align: center;">Your
+                wishlist is empty.</p>
+        </div>
+    </div>
+    <div id="modal-backdrop" onclick="closeAllModals()"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
